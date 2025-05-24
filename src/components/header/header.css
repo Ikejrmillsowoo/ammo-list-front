@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #282c34;
+    color: white;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .header-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .header-btn:hover {
+    background-color: #21a1f1;
+  }
+  
+  @media (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .button-group {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .header-btn {
+      width: 100%;
+    }
+  }
+  
