@@ -10,12 +10,14 @@ const useFetchWord = ()=> {
           const response = await fetch('http://localhost:8080/word');
           const data = await response.json();
           setWord(data.word);
+          
         } catch (error) {
           console.error('Failed to fetch word:', error);
         } finally {
           setLoading(false);
         }
       };
+      console.log(word)
 
     return  {word, loading, fetchWord}
 }
