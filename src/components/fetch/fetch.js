@@ -17,8 +17,6 @@ const useFetchWord = ()=> {
           setLoading(false);
         }
       };
-      console.log(word)
-
     return  {word, loading, fetchWord}
 }
 

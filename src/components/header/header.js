@@ -8,13 +8,16 @@ import useFetchWord from '../fetch/fetch';
 
 const Header = ({setWord}) => {
   const { word, loading, fetchWord} = useFetchWord()
-  setWord(word)
+    setWord(word)
+  // setFetchWord(fetchWord)
+  
     return (
     <header className="header">
       <h1 className="title">Ammo's Words</h1>
       <div className="button-group">
-        <CustomButton setWord={word} className="header-btn" id='newWord' onClick={fetchWord} label={loading? 'Loading...': 'New Word'}/>
+        <CustomButton  className="header-btn" id='newWord' onClick={fetchWord} label={loading? 'Loading...': 'New Word'}/>
         <CustomButton className="header-btn" id='randomWord' label="Random Word" />
+
       </div>
     </header>
   );

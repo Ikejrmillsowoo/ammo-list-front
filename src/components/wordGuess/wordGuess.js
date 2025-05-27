@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import './wordGuess.css'
 import CustomButton from '../buttons/button';
+import useFetchWord from '../fetch/fetch';
 
 const GuessWordGame = ({word}) => {
-  const targetWord = word;
+    
+  const {fetchWord} = useFetchWord()
+   
+  const [targetWord, setTargetWord] = useState(word);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [input, setInput] = useState('');
   const [wrongGuesses, setWrongGuesses] = useState([]);
   const [gameStatus, setGameStatus] = useState('playing');
+ 
+  useEffect(() => {
+    setTargetWord(word);
+    setGuessedLetters([]);
+    setWrongGuesses([]);
+    setGameStatus('playing');
+    setInput('');
+  }, [word]);
+
 
   const maxTries = targetWord.length;
 
@@ -46,17 +60,20 @@ const GuessWordGame = ({word}) => {
     .join(' ');
 
   const resetGame = () => {
+     console.log("Play again clicked")
+     fetchWord()
     setGuessedLetters([]);
     setWrongGuesses([]);
     setInput('');
     setGameStatus('playing');
+    
   };
 
   return (
-    <div style={{ padding: '1rem' }}>
+    <div className='word-guess' style={{ padding: '1rem' }}>
       <h2>Guess the Word</h2>
-      <h3>{displayWord}</h3>
-      <p>Tries left: {maxTries - wrongGuesses.length}</p>
+      <h3 id='display-word'>{displayWord}</h3>
+      <p className='tries'>Tries left: {maxTries - wrongGuesses.length}</p>
 
       {gameStatus === 'playing' && (
         <form onSubmit={handleGuess}>
@@ -65,7 +82,7 @@ const GuessWordGame = ({word}) => {
             maxLength={1}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-          />
+          /><br/>
           <CustomButton type="submit" label="Guess" />
           {/* <button type="submit">Guess</button> */}
         </form>
@@ -74,7 +91,7 @@ const GuessWordGame = ({word}) => {
       {gameStatus === 'won' && <h3>🎉 You Won!</h3>}
       {gameStatus === 'lost' && (
         <div>
-          <h3>💀 You Lost. The word was: {targetWord}</h3>
+          <h3 className='tries'>💀 You Lost. The word was: {targetWord}</h3>
         </div>
       )}
 
@@ -83,7 +100,7 @@ const GuessWordGame = ({word}) => {
         // <button onClick={resetGame}>Play Again</button>
       )}
 
-      <p>Wrong guesses: {wrongGuesses.join(', ')}</p>
+      <p className='tries'>Wrong guesses: {wrongGuesses.join(', ')}</p>
     </div>
   );
 };

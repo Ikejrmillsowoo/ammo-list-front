@@ -1,0 +1,15 @@
+.word-guess {
+    text-align: center;
+
+}
+h2 {
+    font-size: 4em;
+}
+
+#display-word {
+    font-size: 2.5em;
+}
+
+.tries {
+    font-size: 2em;
+}

@@ -1,25 +1,19 @@
 import { useState } from "react";
-import useFetchWord from "../fetch/fetch";
 import Header from "../header/header";
 import GuessWordGame from "../wordGuess/wordGuess";
+import useFetchWord from "../fetch/fetch";
 
 
 function Home() {
-  const [word, setWord] = useState('')
- console.log(word)
-  // const handleNewWord = () => {
-  //   alert('New word logic goes here');
-  // };
-
-  // const handleRandomWord = () => {
-  //   alert('Random word logic goes here');
-  // };
+     const {word, fetchWord} = useFetchWord()
+     const [newWord, setWord] = useState('word')
+  
+   
 
   return (
     <div>
-      <Header setWord={setWord} />
-      <GuessWordGame word={word}/>
-      <h1>{word}</h1>
+      <Header setWord={setWord}/>
+      <GuessWordGame word={newWord} fetchWord={fetchWord} />
       {/* Other content */}
     </div>
   );
