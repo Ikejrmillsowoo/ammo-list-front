@@ -1,18 +1,22 @@
+import useFetchWord from "../fetch/fetch";
 import Header from "../header/header";
 
 
 function Home() {
-  const handleNewWord = () => {
-    alert('New word logic goes here');
-  };
+  const { word} = useFetchWord()
+ console.log(word)
+  // const handleNewWord = () => {
+  //   alert('New word logic goes here');
+  // };
 
-  const handleRandomWord = () => {
-    alert('Random word logic goes here');
-  };
+  // const handleRandomWord = () => {
+  //   alert('Random word logic goes here');
+  // };
 
   return (
     <div>
-      <Header onNewWord={handleNewWord} onRandomWord={handleRandomWord} />
+      <Header />
+      <h1>{word}</h1>
       {/* Other content */}
     </div>
   );

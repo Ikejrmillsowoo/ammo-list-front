@@ -1,20 +1,23 @@
-import React, { useEffect, useState} from 'react'
+import { useState} from 'react'
 
-function fetchWord(){
+const useFetchWord = ()=> {
     const [word,  setWord] = useState('')
+    const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-      fetch('http://localhost:8080/word')
-      .then(response => response.text())
-      .then(data => setWord(data))
-    }, [])
-    
+    const fetchWord = async () => {
+        setLoading(true);
+        try {
+          const response = await fetch('http://localhost:8080/word');
+          const data = await response.json();
+          setWord(data.word);
+        } catch (error) {
+          console.error('Failed to fetch word:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-    return (
-        <div>
-            <h1>{word}</h1>
-        </div>
-    )
+    return  {word, loading, fetchWord}
 }
 
-export default fetchWord;
+export default useFetchWord;

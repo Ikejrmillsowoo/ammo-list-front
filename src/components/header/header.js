@@ -1,13 +1,19 @@
 import React from 'react';
 import './header.css';
+import CustomButton from '../buttons/button';
+import useFetchWord from '../fetch/fetch';
 
-const Header = ({ onNewWord, onRandomWord }) => {
-  return (
+
+
+
+const Header = () => {
+  const { word, loading, fetchWord} = useFetchWord()
+    return (
     <header className="header">
       <h1 className="title">Ammo's Words</h1>
       <div className="button-group">
-        <button className="header-btn" onClick={onNewWord}>New Word</button>
-        <button className="header-btn" onClick={onRandomWord}>Random Word</button>
+        <CustomButton className="header-btn" id='newWord' onClick={fetchWord} label={loading? 'Loading...': 'New Word'}/>
+        <CustomButton className="header-btn" id='randomWord' label="Random Word" />
       </div>
     </header>
   );
