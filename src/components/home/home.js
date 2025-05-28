@@ -6,7 +6,7 @@ import useFetchWord from "../fetch/fetch";
 
 function Home() {
      const {word, fetchWord} = useFetchWord()
-     const [newWord, setWord] = useState('word')
+     const [newWord, setWord] = useState(word)
   
    
 
