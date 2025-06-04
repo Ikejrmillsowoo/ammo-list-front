@@ -1,0 +1,15 @@
+h2 {
+    font-size: 4em;
+}
+
+#wordDisplay{
+    font-size: 2.5em;
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    margin: 1px;
+}
+
+li {
+    list-style-type: none;
+}
