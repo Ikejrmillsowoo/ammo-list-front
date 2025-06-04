@@ -16,13 +16,10 @@ function Home() {
   return (
     <div>
       <Header setWord={setWord} />
-      {/* <Router> */}
         <Routes>
           <Route path='/' element={<AllWords />} />
           <Route path='/wordGuess' element={<GuessWordGame word={newWord} fetchWord={fetchWord} />} />
         </Routes>
-      {/* </Router> */}
-
 
       {/* Other content */}
     </div>

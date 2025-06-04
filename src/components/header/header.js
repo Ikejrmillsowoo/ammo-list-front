@@ -16,9 +16,7 @@ const Header = ({setWord}) => {
   if (setWord && typeof setWord === 'function') {
     setWord(word);
   }
-}, [word, setWord]);
-  // setFetchWord(fetchWord)
-  
+}, [word, setWord]);  
     return (
     <header className="header">
       <Link to='/' className="title"><h1 className="title">Ammo's Words</h1></Link>

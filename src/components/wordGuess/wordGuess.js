@@ -86,7 +86,6 @@ const GuessWordGame = ({word}) => {
             onChange={(e) => setInput(e.target.value)}
           /><br/>
           <CustomButton type="submit" label="Guess" />
-          {/* <button type="submit">Guess</button> */}
         </form>
       )}
 
@@ -99,7 +98,6 @@ const GuessWordGame = ({word}) => {
 
       {(gameStatus === 'won' || gameStatus === 'lost') && (
         <CustomButton label="Play Again" onClick={resetGame} />
-        // <button onClick={resetGame}>Play Again</button>
       )}
 
       <p className='tries'>Wrong guesses: {wrongGuesses.join(', ')}</p>
