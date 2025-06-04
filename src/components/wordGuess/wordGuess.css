@@ -7,9 +7,16 @@ h2 {
 }
 
 #display-word {
-    font-size: 2.5em;
+    font-size: 3em;
+
 }
 
 .tries {
+    font-size: 2em;
+}
+
+input {
+    margin: 2px;
+    padding: 2px;
     font-size: 2em;
 }

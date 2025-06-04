@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './wordGuess.css'
 import CustomButton from '../buttons/button';
 import useFetchWord from '../fetch/fetch';
+import HangmanFigure from '../hangmanFigure/hangmanFigure';
 
 const GuessWordGame = ({word}) => {
     
@@ -22,7 +23,8 @@ const GuessWordGame = ({word}) => {
   }, [word]);
 
 
-  const maxTries = targetWord.length;
+//   const maxTries = targetWord.length;
+  const maxTries = 6;
 
   const handleGuess = (e) => {
     e.preventDefault();
@@ -101,6 +103,7 @@ const GuessWordGame = ({word}) => {
       )}
 
       <p className='tries'>Wrong guesses: {wrongGuesses.join(', ')}</p>
+      <HangmanFigure wrongGuesses={wrongGuesses.length} />
     </div>
   );
 };
