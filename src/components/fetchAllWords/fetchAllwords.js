@@ -10,7 +10,7 @@ const useFetchAllWords = ()=> {
             try {
               const response = await fetch('http://localhost:8080');
               const data = await response.json();
-              console.log(data)
+            //   console.log(data)
                setWords(data);
               
             } catch (error) {
