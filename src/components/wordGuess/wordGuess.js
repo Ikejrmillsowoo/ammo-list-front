@@ -100,8 +100,8 @@ const GuessWordGame = ({word}) => {
         <CustomButton label="Play Again" onClick={resetGame} />
       )}
 
-      <p className='tries'>Wrong guesses: {wrongGuesses.join(', ')}</p>
       <HangmanFigure wrongGuesses={wrongGuesses.length} />
+      <p className='tries'>Wrong guesses: {wrongGuesses.join(', ')}</p>
     </div>
   );
 };
