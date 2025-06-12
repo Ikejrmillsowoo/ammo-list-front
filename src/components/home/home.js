@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../header/header";
 import GuessWordGame from "../wordGuess/wordGuess";
 import useFetchWord from "../fetch/fetch";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import AllWords from "../allWords/allWords";
 
 
