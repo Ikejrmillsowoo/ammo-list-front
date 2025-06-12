@@ -7,7 +7,7 @@ const useFetchWord = ()=> {
     const fetchWord = async () => {
         setLoading(true);
         try {
-          const response = await fetch('http://localhost:8080/word');
+          const response = await fetch('http://192.168.4.144:8080/word');
           const data = await response.json();
           setWord(data.word);
           
